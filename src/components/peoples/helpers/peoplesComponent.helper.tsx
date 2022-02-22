@@ -16,6 +16,8 @@ export const getTableColumns = () => ([
     title: 'Name',
     dataIndex: 'name',
     key: 'name',
+    sorter: (a:any, b:any) => a.name > b.name ? 1 : -1,
+    defaultSortOrder: 'ascend',
   },
   {
     title: 'Height',

@@ -16,7 +16,9 @@ export const PeoplesComponent = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPeoples)
+    if (!peoples.peoples.results) {
+      dispatch(fetchPeoples)
+    }
   }, []);
 
   if (peoples?.peoples) {
