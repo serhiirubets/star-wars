@@ -1,11 +1,11 @@
-interface PeopleResponse {
+export interface Peoples {
   name: string;
   height: string;
   mass: string;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
+  hairColor: string;
+  skinColor: string;
+  eyeColor: string;
+  birthYear: string;
   gender: string;
   homeworld: string;
   films: string[];
@@ -15,11 +15,12 @@ interface PeopleResponse {
   created: string;
   edited: string;
   url: string;
+  key: string;
 }
 
-export interface FetchPeopleResponseDto {
+export interface PeoplesInfo {
   count: number;
   next: string;
   previous: string;
-  results: PeopleResponse[];
+  results: Peoples[];
 }

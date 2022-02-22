@@ -1,25 +1,18 @@
 import React, {useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux'
+import 'antd/dist/antd.css';
 
 import './App.css';
-import {fetchPeoples} from '../peoples/peoples.action';
-import {RootState} from '../../app/store';
+import {PeoplesComponent} from '../peoples/peoplesComponent';
 
 function App() {
-  const isOn: any = useSelector((state: RootState) => {
-    console.log(state);
-    return state;
-  })
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchPeoples)
-  }, []);
+
 
   return (
     <div className="App">
-      <header className="App-header">
+      {/*<header className="App-header">*/}
 
-      </header>
+      {/*</header>*/}
+      <PeoplesComponent />
     </div>
   );
 }
