@@ -1,4 +1,4 @@
-interface PeopleResponse {
+export interface PeopleResponse {
   name: string;
   height: string;
   mass: string;

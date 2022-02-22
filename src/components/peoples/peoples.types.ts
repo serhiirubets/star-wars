@@ -1,4 +1,5 @@
-export interface Peoples {
+export interface People {
+  id: string;
   name: string;
   height: string;
   mass: string;
@@ -22,7 +23,7 @@ export interface PeoplesInfo {
   count: number;
   next: string;
   previous: string;
-  results: Peoples[];
+  results: People[];
 }
 
 export interface PeoplesStore {
@@ -38,5 +39,5 @@ export interface SetPeople {
 export interface PeopleTableProps {
   rowKey: string;
   columns: any[];
-  dataSource: Peoples[];
+  dataSource: People[];
 }
