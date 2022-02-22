@@ -3,7 +3,7 @@ import {PeoplesInfo, SetPeople} from './peoples.types';
 
 export const peoplesSlice: any = createSlice({
   name: 'peoples',
-  initialState: { isLoading: false, peoples: [] },
+  initialState: {isLoading: false, peoples: []},
   reducers: {
     setPeoples: (state: any, action: PayloadAction<PeoplesInfo>): any => {
       return {
@@ -13,7 +13,7 @@ export const peoplesSlice: any = createSlice({
     },
     setLoading: (state: any) => {
       return {
-        peoples: { ...state.peoples },
+        peoples: {...state.peoples},
         isLoading: true
       };
     }
@@ -21,6 +21,6 @@ export const peoplesSlice: any = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { setPeoples, setLoading } = peoplesSlice.actions
+export const {setPeoples, setLoading} = peoplesSlice.actions
 
 export default peoplesSlice.reducer

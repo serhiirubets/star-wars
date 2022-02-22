@@ -4,7 +4,7 @@ import {fetchPeoples} from './peoples.action';
 import {selectPeoples} from './peoples.selectors';
 import {useAppSelector} from '../../app/hooks';
 
-import { Table, Tag, Space } from 'antd';
+import { Table } from 'antd';
 import {getTableColumns} from './helpers/peoplesComponent.helper';
 
 import WithLoader from '../../hocs/withLoaderHOC';
@@ -14,8 +14,6 @@ const TableWithLoader = WithLoader<PeopleTableProps & { isLoading: boolean }>(Ta
 export const PeoplesComponent = () => {
   const peoples = useAppSelector(selectPeoples);
   const dispatch = useDispatch();
-
-  console.log(peoples);
 
   useEffect(() => {
     dispatch(fetchPeoples)

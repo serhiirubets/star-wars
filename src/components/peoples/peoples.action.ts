@@ -9,8 +9,8 @@ import {PeoplesInfo} from './peoples.types';
 
 export const fetchPeoples = async (dispatch: Dispatch) => {
   dispatch(setLoading(true));
-  const response  = await axios.get<FetchPeopleResponseDto>(`${apiConfig.baseUrl}${apiConfig.people}`);
-  const data = camelcaseKeys(response.data,{deep: true}) as PeoplesInfo;
+  const response = await axios.get<FetchPeopleResponseDto>(`${apiConfig.baseUrl}${apiConfig.people}`);
+  const data = camelcaseKeys(response.data, {deep: true}) as PeoplesInfo;
 
   const dataWithId: PeoplesInfo = {
     ...data,

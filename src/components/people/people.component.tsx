@@ -1,3 +1,54 @@
+import {Card, Col, Row} from 'antd';
+import {People} from '../peoples/peoples.types';
+import {useParams} from 'react-router-dom';
+import {useAppSelector} from '../../app/hooks';
+import {selectPeople} from '../peoples/peoples.selectors';
+import {useEffect} from 'react';
+import {fetchPeoples} from '../peoples/peoples.action';
+import {useDispatch} from 'react-redux';
+
 export const PeopleComponent = () => {
-  return <h1>People Component will be here</h1>
+  const params = useParams();
+  const people: People | null = useAppSelector(selectPeople(params.name)) as People | null;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchPeoples)
+  }, []);
+
+  if (!people) {
+    return null;
+  }
+
+  return (
+    <Row justify="center">
+      <Col>
+        <Card
+          style={{width: 400}}
+          cover={<img alt="example" src="https://via.placeholder.com/400.png/09f/fff"/>}
+        >
+          <Row justify="start">
+            <Col span={12}>Name:</Col>
+            <Col span={12}>{people.name}</Col>
+          </Row>
+          <Row justify="start">
+            <Col span={12}>Height:</Col>
+            <Col span={12}>{people.height}</Col>
+          </Row>
+          <Row justify="start">
+            <Col span={12}>Hair Color:</Col>
+            <Col span={12}>{people.hairColor}</Col>
+          </Row>
+          <Row justify="start">
+            <Col span={12}>Skin Color:</Col>
+            <Col span={12}>{people.skinColor}</Col>
+          </Row>
+          <Row justify="start">
+            <Col span={12}>Eye Color:</Col>
+            <Col span={12}>{people.eyeColor}</Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
+  )
 }
