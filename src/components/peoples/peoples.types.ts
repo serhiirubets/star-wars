@@ -24,3 +24,19 @@ export interface PeoplesInfo {
   previous: string;
   results: Peoples[];
 }
+
+export interface PeoplesStore {
+  isLoading: boolean;
+  peoples: PeoplesInfo
+}
+
+export interface SetPeople {
+  peoples: PeoplesInfo,
+  isLoading: boolean;
+}
+
+export interface PeopleTableProps {
+  rowKey: string;
+  columns: any[];
+  dataSource: Peoples[];
+}

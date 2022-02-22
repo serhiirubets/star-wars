@@ -1,4 +1,4 @@
 import {RootState} from '../../app/store';
-import {PeoplesInfo} from './peoples.types';
+import {PeoplesStore} from './peoples.types';
 
-export const selectPeoples = (state: RootState): PeoplesInfo => state.peoples.peoples;
+export const selectPeoples = (state: RootState): PeoplesStore => state.peoples;

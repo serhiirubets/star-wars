@@ -1,22 +1,26 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit'
-import {PeoplesInfo} from './peoples.types';
+import {CaseReducer, createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {PeoplesInfo, SetPeople} from './peoples.types';
 
 export const peoplesSlice: any = createSlice({
   name: 'peoples',
-  initialState: {},
+  initialState: { isLoading: false, peoples: [] },
   reducers: {
-    setPeoples: (state: any, action: PayloadAction<PeoplesInfo>) => {
-      console.log(action);
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.peoples = action.payload;
+    setPeoples: (state: any, action: PayloadAction<PeoplesInfo>): any => {
+      return {
+        peoples: action.payload,
+        isLoading: false
+      };
     },
+    setLoading: (state: any) => {
+      return {
+        peoples: { ...state.peoples },
+        isLoading: true
+      };
+    }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setPeoples } = peoplesSlice.actions
+export const { setPeoples, setLoading } = peoplesSlice.actions
 
 export default peoplesSlice.reducer
