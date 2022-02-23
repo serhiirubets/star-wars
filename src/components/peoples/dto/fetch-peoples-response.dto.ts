@@ -17,7 +17,7 @@ export interface PeopleResponse {
   url: string;
 }
 
-export interface FetchPeopleResponseDto {
+export interface FetchPeoplesResponseDto {
   count: number;
   next: string;
   previous: string;

@@ -53,7 +53,7 @@ export const getTableColumns = () => ([
 export const setId = (data: Omit<People[], 'id'>): People[] => {
   return data.map(people => ({
     ...people,
-    id: people.name.replace(' ', '')
+    id: people.name.replaceAll(' ', '')
   }))
 }
 

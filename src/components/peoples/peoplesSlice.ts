@@ -21,20 +21,16 @@ export const peoplesSlice: any = createSlice({
       const peoples = [...state.peoples.results].filter((people: People) => people.id !== action.payload.id);
 
       peoples.push(action.payload);
-      const result = {
+      return {
         peoples: {
           ...state.peoples,
           results: peoples
         },
         isLoading: false
       };
-      console.log(result);
-      return result;
     },
   },
 })
 
-// Action creators are generated for each case reducer function
 export const {setPeoples, setLoading, setPeople} = peoplesSlice.actions
-
 export default peoplesSlice.reducer

@@ -11,13 +11,12 @@ export const HeaderComponent = () => {
   const dispatch = useDispatch();
 
   function onInput(e: FormEvent<HTMLInputElement>) {
-    const searachedValue = (e.target as HTMLInputElement).value;
+    const searchedValue = (e.target as HTMLInputElement).value;
 
     dispatch(fetchPeoples({
       type: FETCH_TYPE.SEARCH,
-      value: searachedValue,
+      value: searchedValue,
     }));
-
   }
 
   return <Header style={{backgroundColor: '#1a90ff'}}>

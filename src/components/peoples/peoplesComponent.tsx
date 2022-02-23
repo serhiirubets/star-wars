@@ -29,7 +29,6 @@ export const PeoplesComponent = () => {
   }, []);
 
   if (peoples?.peoples) {
-
     return<>
       <HeaderComponent />
       <

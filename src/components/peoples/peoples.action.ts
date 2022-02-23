@@ -1,7 +1,6 @@
 import axios from 'axios';
-import {apiConfig} from '../../config/api.config';
 import {Dispatch} from '@reduxjs/toolkit';
-import {FetchPeopleResponseDto} from './dto/fetch-people-response.dto';
+import {FetchPeoplesResponseDto} from './dto/fetch-peoples-response.dto';
 import {setLoading, setPeoples} from './peoplesSlice';
 import camelcaseKeys from 'camelcase-keys';
 import {getSearchedUrl, setId} from './helpers/peoplesComponent.helper';
@@ -11,7 +10,7 @@ export const fetchPeoples = (params?: SearchedParams) => async (dispatch: Dispat
   dispatch(setLoading(true));
 
   const url = getSearchedUrl(params);
-  const response = await axios.get<FetchPeopleResponseDto>(url);
+  const response = await axios.get<FetchPeoplesResponseDto>(url);
   const data = camelcaseKeys(response.data, {deep: true}) as PeoplesInfo;
 
   const dataWithId: PeoplesInfo = {

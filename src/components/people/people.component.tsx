@@ -13,7 +13,7 @@ export const PeopleComponent = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPeoples)
+    dispatch(fetchPeoples())
   }, []);
 
   if (!people) {
@@ -21,7 +21,7 @@ export const PeopleComponent = () => {
   }
 
   return (
-    <>
+    <div style={{ marginTop: 20 }}>
       <Row>
         <Col offset={2}><Button type="primary" size="middle"><Link to={`/`}>Back</Link></Button></Col>
       </Row>
@@ -54,7 +54,6 @@ export const PeopleComponent = () => {
           </Card>
         </Col>
       </Row>
-    </>
-
+    </div>
   )
 }

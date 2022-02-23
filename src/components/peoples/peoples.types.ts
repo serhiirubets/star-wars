@@ -31,11 +31,6 @@ export interface PeoplesStore {
   peoples: PeoplesInfo
 }
 
-export interface SetPeople {
-  peoples: PeoplesInfo,
-  isLoading: boolean;
-}
-
 export interface PeopleTableProps {
   rowKey: string;
   columns: any[];
