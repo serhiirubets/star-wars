@@ -40,4 +40,5 @@ export interface PeopleTableProps {
   rowKey: string;
   columns: any[];
   dataSource: People[];
+  pagination: any;
 }

@@ -7,9 +7,11 @@ import camelcaseKeys from 'camelcase-keys';
 import {setId} from './helpers/peoplesComponent.helper';
 import {PeoplesInfo} from './peoples.types';
 
-export const fetchPeoples = async (dispatch: Dispatch) => {
+export const fetchPeoples = (pageNumber = '') => async (dispatch: Dispatch) => {
   dispatch(setLoading(true));
-  const response = await axios.get<FetchPeopleResponseDto>(`${apiConfig.baseUrl}${apiConfig.people}`);
+  const baseUrl = `${apiConfig.baseUrl}${apiConfig.people}`
+  const url = pageNumber ? `${baseUrl}?page=${pageNumber}` : baseUrl;
+  const response = await axios.get<FetchPeopleResponseDto>(url);
   const data = camelcaseKeys(response.data, {deep: true}) as PeoplesInfo;
 
   const dataWithId: PeoplesInfo = {
