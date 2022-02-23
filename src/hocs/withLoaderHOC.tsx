@@ -7,7 +7,7 @@ export function WithLoader<P extends {isLoading: boolean}>(Component: React.Func
       return (<Component {...props} />);
     }
 
-    return <Space size="middle">
+    return <Space size="middle" style={{ marginTop: 20 }}>
       <Spin size="large" />
     </Space>
   }

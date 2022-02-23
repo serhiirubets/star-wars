@@ -8,7 +8,8 @@ import {Table} from 'antd';
 import {getTableColumns} from './helpers/peoplesComponent.helper';
 
 import WithLoader from '../../hocs/withLoaderHOC';
-import {PeopleTableProps} from './peoples.types';
+import {FETCH_TYPE, PeopleTableProps} from './peoples.types';
+import {HeaderComponent} from '../header/header.component';
 
 const TableWithLoader = WithLoader<PeopleTableProps & { isLoading: boolean }>(Table)
 export const PeoplesComponent = () => {
@@ -17,7 +18,7 @@ export const PeoplesComponent = () => {
   const [currentPage, setCurrentPage] = useState('1');
 
   function onChange(pageNumber: string) {
-    dispatch(fetchPeoples(pageNumber));
+    dispatch(fetchPeoples({ type: FETCH_TYPE.PAGE, value: pageNumber}));
     setCurrentPage(pageNumber);
   }
 
@@ -28,20 +29,25 @@ export const PeoplesComponent = () => {
   }, []);
 
   if (peoples?.peoples) {
-    return <
-      TableWithLoader
-      isLoading={peoples.isLoading}
-      rowKey="name"
-      columns={getTableColumns()}
-      dataSource={peoples.peoples.results}
-      pagination={{
-        current: currentPage,
-        total: peoples.peoples.count,
-        showSizeChanger: false,
-        onChange
-      }
-      }
-    />
+
+    return<>
+      <HeaderComponent />
+      <
+        TableWithLoader
+        isLoading={peoples.isLoading}
+        rowKey="name"
+        columns={getTableColumns()}
+        dataSource={peoples.peoples.results}
+        pagination={{
+          current: currentPage,
+          total: peoples.peoples.count,
+          showSizeChanger: false,
+          onChange
+        }
+        }
+      />
+    </>
+
   }
 
   return null;

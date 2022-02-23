@@ -1,6 +1,7 @@
 import {Button, Col, Row} from 'antd';
 import {Link} from 'react-router-dom';
-import {People} from '../peoples.types';
+import {FETCH_TYPE, People, SearchedParams} from '../peoples.types';
+import {apiConfig} from '../../../config/api.config';
 
 function ActionButtons ({ id }: { id: string}) {
   return <Row>
@@ -54,4 +55,20 @@ export const setId = (data: Omit<People[], 'id'>): People[] => {
     ...people,
     id: people.name.replace(' ', '')
   }))
+}
+
+
+export function getSearchedUrl(params?: SearchedParams): string {
+  const baseUrl = `${apiConfig.baseUrl}${apiConfig.people}`;
+  let url = baseUrl;
+
+  if (params?.type === FETCH_TYPE.PAGE) {
+    url = `${baseUrl}?page=${params.value}`;
+  }
+
+  if (params?.type === FETCH_TYPE.SEARCH) {
+    url = `${baseUrl}?search=${params.value}`;
+  }
+
+  return url;
 }

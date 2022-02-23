@@ -42,3 +42,13 @@ export interface PeopleTableProps {
   dataSource: People[];
   pagination: any;
 }
+
+export enum FETCH_TYPE {
+  SEARCH = 'SEARCH',
+  PAGE = 'PAGE'
+}
+
+export interface SearchedParams {
+  type: FETCH_TYPE;
+  value: string;
+}
