@@ -12,10 +12,10 @@
 ### Redux with reduxjs/toolkit
 ### Ant design library
 
+## Pls, use modern node.js verson (16+)
 ## For running this project, just use as always:
-
 ### `npm i`
 ### `npm start`
-#### Pls, use modern node.js verison
+
 
 ### Note: this test task contains some extra network request that can be reduced if it will be real world application.
