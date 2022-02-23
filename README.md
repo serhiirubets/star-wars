@@ -2,6 +2,8 @@
 
 ## Functionality:
 ### List of people
+### Card details
+### Edit people
 ### Search people by text
 ### Pagination
 
